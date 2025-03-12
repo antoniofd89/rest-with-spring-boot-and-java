@@ -1,3 +1,12 @@
-br\com\dias\rest_with_spring_boot_and_java\model\Greeting.class
-br\com\dias\rest_with_spring_boot_and_java\controllers\GreetingControllers.class
+br\com\dias\rest_with_spring_boot_and_java\exception\handler\CustomEntityResponseHandler.class
+br\com\dias\rest_with_spring_boot_and_java\model\Person.class
+br\com\dias\rest_with_spring_boot_and_java\mapper\ObjectMapper.class
 br\com\dias\rest_with_spring_boot_and_java\Startup.class
+br\com\dias\rest_with_spring_boot_and_java\mapper\custom\PersonMapper.class
+br\com\dias\rest_with_spring_boot_and_java\service\PersonService.class
+br\com\dias\rest_with_spring_boot_and_java\exception\ResourceNotFoundException.class
+br\com\dias\rest_with_spring_boot_and_java\controllers\PersonController.class
+br\com\dias\rest_with_spring_boot_and_java\repository\PersonRepository.class
+br\com\dias\rest_with_spring_boot_and_java\data\dto\v1\PersonDTO.class
+br\com\dias\rest_with_spring_boot_and_java\data\dto\v2\PersonDTOV2.class
+br\com\dias\rest_with_spring_boot_and_java\exception\ExceptionResponse.class
