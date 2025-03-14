@@ -30,11 +30,6 @@ public class PersonController {
                     MediaType.APPLICATION_YAML_VALUE})
     public PersonDTO findById(@PathVariable("id") Long id) {
         var person = service.findById(id);
-        person.setBirthDay(new Date());
-        //person.setPhoneNumber("+55 (81) 98440-3951");
-        person.setPhoneNumber("");
-        person.setLastName(null);
-        person.setSensitiveData("Foo Bar");
         return person;
     }
 
