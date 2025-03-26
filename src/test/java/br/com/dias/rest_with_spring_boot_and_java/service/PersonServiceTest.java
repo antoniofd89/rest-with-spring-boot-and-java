@@ -124,7 +124,7 @@ class PersonServiceTest {
     }
 
     @Test
-    void testCreateWithNullPerson(){
+    void testCreateWithNullPerson() {
         Exception exception = assertThrows(RequiredObjectIsNullException.class,
                 () -> {
                     service.create(null);
@@ -186,7 +186,7 @@ class PersonServiceTest {
     }
 
     @Test
-    void testUpdateWithNullPerson(){
+    void testUpdateWithNullPerson() {
         Exception exception = assertThrows(RequiredObjectIsNullException.class,
                 () -> {
                     service.update(null);
@@ -204,8 +204,8 @@ class PersonServiceTest {
         person.setId(1L);
         when(repository.findById(1L)).thenReturn(Optional.of(person));//return uma entidade de person
         service.delete(1L);
-        verify(repository,times(1)).findById(anyLong());
-        verify(repository,times(1)).delete(any(Person.class));
+        verify(repository, times(1)).findById(anyLong());
+        verify(repository, times(1)).delete(any(Person.class));
         verifyNoMoreInteractions(repository);
     }
 
@@ -216,7 +216,7 @@ class PersonServiceTest {
         List<PersonDTO> people = service.findAll();
 
         assertNotNull(people);
-        assertEquals(14,people.size());
+        assertEquals(14, people.size());
 
         var personOne = people.get(1);
 
@@ -250,7 +250,6 @@ class PersonServiceTest {
         assertEquals("Last Name Test1", personOne.getLastName());
         assertEquals("Address Test1", personOne.getAddress());
         assertEquals("Female", personOne.getGender());
-
 
         var personFive = people.get(5);
 
