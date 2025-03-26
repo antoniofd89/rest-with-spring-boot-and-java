@@ -1,6 +1,7 @@
 package br.com.dias.rest_with_spring_boot_and_java.service;
 
 import br.com.dias.rest_with_spring_boot_and_java.dto.v1.PersonDTO;
+import br.com.dias.rest_with_spring_boot_and_java.exception.RequiredObjectIsNullException;
 import br.com.dias.rest_with_spring_boot_and_java.model.Person;
 import br.com.dias.rest_with_spring_boot_and_java.repository.PersonRepository;
 import br.com.dias.rest_with_spring_boot_and_java.unitestes.mapper.mocks.MockPerson;
@@ -15,8 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -123,6 +123,19 @@ class PersonServiceTest {
     }
 
     @Test
+    void testCreateWithNullPerson(){
+        Exception exception = assertThrows(RequiredObjectIsNullException.class,
+                () -> {
+                    service.create(null);
+                });
+
+        String expectedMessage = "It is not allowed to persist a null object";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
     void createV2() {
     }
 
@@ -169,6 +182,19 @@ class PersonServiceTest {
         assertEquals("Last Name Test1", result.getLastName());
         assertEquals("Address Test1", result.getAddress());
         assertEquals("Female", result.getGender());
+    }
+
+    @Test
+    void testUpdateWithNullPerson(){
+        Exception exception = assertThrows(RequiredObjectIsNullException.class,
+                () -> {
+                    service.update(null);
+                });
+
+        String expectedMessage = "It is not allowed to persist a null object";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test

@@ -3,6 +3,7 @@ package br.com.dias.rest_with_spring_boot_and_java.service;
 import br.com.dias.rest_with_spring_boot_and_java.controllers.PersonController;
 import br.com.dias.rest_with_spring_boot_and_java.dto.v1.PersonDTO;
 import br.com.dias.rest_with_spring_boot_and_java.dto.v2.PersonDTOV2;
+import br.com.dias.rest_with_spring_boot_and_java.exception.RequiredObjectIsNullException;
 import br.com.dias.rest_with_spring_boot_and_java.exception.ResourceNotFoundException;
 import br.com.dias.rest_with_spring_boot_and_java.mapper.custom.PersonMapper;
 import br.com.dias.rest_with_spring_boot_and_java.model.Person;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 import java.util.List;
@@ -33,8 +35,8 @@ public class PersonService {
 
     public List<PersonDTO> findAll() {
         logger.info("Finding all people!");
-        var persons =  parseListObject(repository.findAll(), PersonDTO.class);
-        persons.forEach(this:: addHateoasLinks);
+        var persons = parseListObject(repository.findAll(), PersonDTO.class);
+        persons.forEach(this::addHateoasLinks);
 
         return persons;
     }
@@ -45,12 +47,15 @@ public class PersonService {
 
         var entity = repository.findById(id).orElseThrow(()
                 -> new ResourceNotFoundException("No records found for this ID"));
-        var dto =  parseObject(entity, PersonDTO.class);
+        var dto = parseObject(entity, PersonDTO.class);
         addHateoasLinks(dto);
         return dto;
     }
 
     public PersonDTO create(PersonDTO person) {
+
+        if (person == null) throw new RequiredObjectIsNullException();
+
         logger.info("Create one Person");
         var entity = parseObject(person, Person.class);
         var dto = parseObject(repository.save(entity), PersonDTO.class);
@@ -65,6 +70,9 @@ public class PersonService {
     }
 
     public PersonDTO update(PersonDTO person) {
+
+        if (person == null) throw new RequiredObjectIsNullException();
+
         logger.info("Updating one Person");
         Person entity = repository.findById(person.getId()).orElseThrow(()
                 -> new ResourceNotFoundException("No records found for this ID"));
@@ -72,7 +80,7 @@ public class PersonService {
         entity.setLastName(person.getLastName());
         entity.setAddress(person.getAddress());
         entity.setGender(person.getGender());
-        var dto =  parseObject(repository.save(entity), PersonDTO.class);
+        var dto = parseObject(repository.save(entity), PersonDTO.class);
         addHateoasLinks(dto);
         return dto;
     }
