@@ -1,4 +1,4 @@
-package br.com.dias.rest_with_spring_boot_and_java.data.dto.v2;
+package br.com.dias.rest_with_spring_boot_and_java.dto.v2;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

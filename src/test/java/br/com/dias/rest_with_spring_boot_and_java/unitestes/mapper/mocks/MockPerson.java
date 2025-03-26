@@ -1,6 +1,6 @@
 package br.com.dias.rest_with_spring_boot_and_java.unitestes.mapper.mocks;
 
-import br.com.dias.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
+import br.com.dias.rest_with_spring_boot_and_java.dto.v1.PersonDTO;
 import br.com.dias.rest_with_spring_boot_and_java.model.Person;
 
 import java.util.ArrayList;
@@ -37,11 +37,11 @@ public class MockPerson {
     
     public Person mockEntity(Integer number) {
         Person person = new Person();
-        person.setAddress("Address Test");
-        person.setFirstName("First Name Test");
+        person.setAddress("Address Test"+ number);
+        person.setFirstName("First Name Test"+ number);
         person.setGender(((number % 2)==0) ? "Male" : "Female");
         person.setId(number.longValue());
-        person.setLastName("Last Name Test");
+        person.setLastName("Last Name Test"+ number);
         return person;
     }
 

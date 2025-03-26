@@ -1,13 +1,11 @@
-package br.com.dias.rest_with_spring_boot_and_java.data.dto.v1;
+package br.com.dias.rest_with_spring_boot_and_java.dto.v1;
 
 import br.com.dias.rest_with_spring_boot_and_java.serializer.GenderSerializer;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 
 //@JsonPropertyOrder({"id", "firstName", "lastName", "address", "gender"})

@@ -1,8 +1,8 @@
 package br.com.dias.rest_with_spring_boot_and_java.service;
 
 import br.com.dias.rest_with_spring_boot_and_java.controllers.PersonController;
-import br.com.dias.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
-import br.com.dias.rest_with_spring_boot_and_java.data.dto.v2.PersonDTOV2;
+import br.com.dias.rest_with_spring_boot_and_java.dto.v1.PersonDTO;
+import br.com.dias.rest_with_spring_boot_and_java.dto.v2.PersonDTOV2;
 import br.com.dias.rest_with_spring_boot_and_java.exception.ResourceNotFoundException;
 import br.com.dias.rest_with_spring_boot_and_java.mapper.custom.PersonMapper;
 import br.com.dias.rest_with_spring_boot_and_java.model.Person;

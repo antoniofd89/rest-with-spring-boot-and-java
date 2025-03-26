@@ -1,14 +1,13 @@
 package br.com.dias.rest_with_spring_boot_and_java.controllers;
 
-import br.com.dias.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
-import br.com.dias.rest_with_spring_boot_and_java.data.dto.v2.PersonDTOV2;
+import br.com.dias.rest_with_spring_boot_and_java.dto.v1.PersonDTO;
+import br.com.dias.rest_with_spring_boot_and_java.dto.v2.PersonDTOV2;
 import br.com.dias.rest_with_spring_boot_and_java.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController

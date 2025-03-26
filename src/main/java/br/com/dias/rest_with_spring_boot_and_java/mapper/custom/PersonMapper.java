@@ -1,6 +1,6 @@
 package br.com.dias.rest_with_spring_boot_and_java.mapper.custom;
 
-import br.com.dias.rest_with_spring_boot_and_java.data.dto.v2.PersonDTOV2;
+import br.com.dias.rest_with_spring_boot_and_java.dto.v2.PersonDTOV2;
 import br.com.dias.rest_with_spring_boot_and_java.model.Person;
 import org.springframework.stereotype.Service;
 
