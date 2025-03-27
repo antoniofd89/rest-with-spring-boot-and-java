@@ -18,7 +18,7 @@ import java.util.Date;
 @ControllerAdvice
 public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
+    //@ExceptionHandler(ResourceNotFoundException.class)
     public final ResponseEntity<ExceptionResponse> handleAllExceptions(Exception ex, WebRequest request){
         ExceptionResponse response = new ExceptionResponse(
                new Date(),
@@ -28,7 +28,7 @@ public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler 
                 return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
-    @ExceptionHandler(ResourceNotFoundException.class)
+    //@ExceptionHandler(ResourceNotFoundException.class)
     public final ResponseEntity<ExceptionResponse> handleNotFoundAllExceptions(Exception ex, WebRequest request){
         ExceptionResponse response = new ExceptionResponse(
                new Date(),
@@ -37,7 +37,7 @@ public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler 
         );
                 return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
-    @ExceptionHandler(RequiredObjectIsNullException.class)
+    //@ExceptionHandler(RequiredObjectIsNullException.class)
     public final ResponseEntity<ExceptionResponse> handleBadRequestExceptions(Exception ex, WebRequest request){
         ExceptionResponse response = new ExceptionResponse(
                new Date(),

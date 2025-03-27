@@ -14,3 +14,7 @@ spring:
   logging:
     level:
       br.com.dias: DEBUG
+  spring-doc:
+    path-to-match: /api/**/v1/**
+    swagger-ui:
+      user-root-path:
