@@ -23,7 +23,7 @@ public class AuthService {
     @Autowired
     private UserRepository repository;
 
-    public ResponseEntity<TokenDTO> signIn (AccountCredentialsDTO credentials){
+    public ResponseEntity<TokenDTO> signIn(AccountCredentialsDTO credentials) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         credentials.getUserName(),
@@ -32,7 +32,7 @@ public class AuthService {
         );
 
         var user = repository.findByUserName(credentials.getUserName());
-        if(user == null) throw new UsernameNotFoundException("Username "
+        if (user == null) throw new UsernameNotFoundException("Username "
                 + credentials.getUserName() + "not found");
         var tokenResponse = tokenProvider.createAccessToken(
                 credentials.getUserName(),
