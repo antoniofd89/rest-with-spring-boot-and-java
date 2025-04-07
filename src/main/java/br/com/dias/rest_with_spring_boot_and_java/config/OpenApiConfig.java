@@ -12,10 +12,9 @@ public class OpenApiConfig {
     OpenAPI customOpenApi() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("REST API's RESTful from 0 with java, " +
-                                "Spring boot, Kubernetes and Docker")
+                        .title("API's RESTful")
                         .version("V1")
-                        .description("REST API's RESTful from 0 with java, Spring boot, Kubernetes and Docker")
+                        .description("RESTful from 0 with java, Spring boot, Kubernetes and Docker")
                         .termsOfService("http://faria.dias.com.br/estudos")
                         .license(new License()
                                 .name("Apache 2.0")
