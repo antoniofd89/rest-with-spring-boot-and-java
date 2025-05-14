@@ -1,6 +1,6 @@
-CADASTRO DE PESSOAS
+ESTUDO DE API REST
 
-API de cadastro de pessoas
+API de cadastro de pessoas, books
 
 API com a proposta de simular um cadatro simples com algumas dependendias de uso cotidiano, atrelada a padroes de projetos.
 
