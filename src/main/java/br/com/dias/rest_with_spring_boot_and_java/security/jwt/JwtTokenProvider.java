@@ -38,7 +38,7 @@ public class JwtTokenProvider {
 
     @PostConstruct
     protected void init() {
-        secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
+        secretKey = Base64.getUrlEncoder().encodeToString(secretKey.getBytes());
         algorithm = Algorithm.HMAC256(secretKey.getBytes());
     }
 
@@ -93,8 +93,8 @@ public class JwtTokenProvider {
     public String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
 
-        if (StringUtils.isEmpty(bearerToken) && bearerToken.startsWith("Bearer ")) {
-            return bearerToken.substring("Bearer".length());
+        if (StringUtils.isNotBlank(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring("Bearer".length()).trim();
         }
         return null;
     }

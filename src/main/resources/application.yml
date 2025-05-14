@@ -20,6 +20,8 @@ spring:
     level:
       br.com.dias: DEBUG
   spring-doc:
-    path-to-match: /api/**/v1/**
+    path-to-match:
+      -/api/**/v1/**
+      -/auth/**
     swagger-ui:
-      user-root-path:
+      user-root-path: true

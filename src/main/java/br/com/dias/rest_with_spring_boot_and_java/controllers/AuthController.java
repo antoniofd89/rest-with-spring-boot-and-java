@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "Authentication Endpoint")
 @RestController
-@RequestMapping("/auth/signin")
+@RequestMapping("/auth")
 public class AuthController {
 
     @Autowired
@@ -24,8 +24,8 @@ public class AuthController {
     @Operation(summary = "Authenticates an user and return a token ")
     @PostMapping("/signin")
     public ResponseEntity<?> singIn(@RequestBody AccountCredentialsDTO credentials) {
-        if (credentialsIsInvalid(credentials)) return ResponseEntity.ok(service.signIn(credentials)
-                .getBody());
+        if (credentialsIsInvalid(credentials)) return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body("Invalid client request");
 
         var token = service.signIn(credentials);
 
